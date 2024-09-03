@@ -1,0 +1,11 @@
+.random-breed-description {
+    display: flex;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.cat-img {
+    display: flex;
+    margin: 0 auto;
+    max-width: 80%;
+}
