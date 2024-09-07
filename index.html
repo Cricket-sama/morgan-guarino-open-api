@@ -4,9 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>title</title>
+    <title>Receive Your Blessing</title>
 </head>
 <body>
+    <div class="container">
+        <div class="host-section">
+            <div class="host-container">
+                <!-- television and host images go here -->
+                 <img src="images/television.png" alt="A red, dusty, old-looking CRT television containing our host" class="television-image hide-on-mobile">
+                 <img src="images/host-default.png" alt="A cheery pink-haired girl with long white sleeves; the host of this site" class="host-image">
+                 <div class="speech-bubble-wrapper">
+                    <div class="speech-bubble">
+                        <p>Oh hey, welcome. Wanna see something sick af? Click on the angel there and get absolutely blessed</p>
+                        <!-- cat info and updated host text will be populated here by js upon clicking angel image -->           
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="portal-container">
+            <!-- portal image goes here -->
+             <img src="images/portal.png" alt="A glowing orange portal" class="portal-image">
+             <div class="cat-image-container">
+                <!-- cat image will be populated here by js upon clicking angel image -->
+                <img id="cat-image" src="images/inner-portal.png" alt="Random picture of a cat or cats" class="cat-image">
+             </div>
+        </div>
+
+        <div class="angel-container">
+            <!-- angel image goes here -->
+             <img src="images/angel.png" alt="A 6-winged 'biblically accurate angel' comprising many wheels covered in eyes" class="angel-image">
+        </div>
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
