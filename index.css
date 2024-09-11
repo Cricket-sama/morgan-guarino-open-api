@@ -1,11 +1,151 @@
-.random-breed-description {
-    display: flex;
-    margin: 0 auto;
-    max-width: 80%;
+body {
+    font-size: 16px;
+    font-weight: 300;
+}
+.hide-on-mobile {
+    display: none;
 }
 
-.cat-img {
+@media (min-width: 600px) {
+    .hide-on-mobile {
+        display: block;
+    }
+}
+
+.container {
     display: flex;
-    margin: 0 auto;
-    max-width: 80%;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 600px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.television-image,
+.portal-image,
+.angel-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.host-section {
+    order: 1;
+    width: 100%;
+}
+    
+.host-container {
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.television-image {
+    width: 100%;
+}
+
+.host-image {
+    position: absolute;
+    left: 5%;
+    width: 30%;
+}
+
+.speech-bubble-wrapper {
+    position: relative;
+    max-width: fit-content;
+}
+
+.speech-bubble {
+    position: relative;
+    max-width: 55%;
+    height: 10rem;
+    overflow-y: auto;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    top: 20%;
+    left: 40%;
+    background-color: #3ff1d9;
+    border-radius: 5px;
+    z-index: 2;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.speech-bubble-wrapper:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border: 20px solid transparent;
+	border-right-color: #3ff1d9;
+	border-left: 0;
+    border-bottom: 0;
+    left: 37%;
+    top: 0%;
+}
+
+.portal-container {
+    width: 90%;
+    order: -1;
+    margin: -5% 0 0 0;
+    position: relative;
+}
+
+.portal-image {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.cat-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 65%;
+    height: 65%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+    animation: rotate 60s linear reverse infinite;
+}
+
+.stop-rotating {
+    animation: none;
+}
+
+.angel-container {
+    order: 0;
+    margin: -20% 0 0 0;
+    max-width: 70%;
+}
+
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.25rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.angel-image {
+    animation: hoverAnimation 2s ease-in-out infinite;
 }
