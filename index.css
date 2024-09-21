@@ -1,7 +1,14 @@
+/* General Styling */
 body {
     font-size: 16px;
     font-weight: 300;
+    font-family: 'Inter';
+    color: white;
+    background-color: #009B77;
+    overflow-y: hidden;
 }
+
+/* Hide TV-Host for Mobile Screens */
 .hide-on-mobile {
     display: none;
 }
@@ -12,19 +19,36 @@ body {
     }
 }
 
+/* Hide Regular Host for Larger Screens */
+.hide-on-lg {
+    display: block;
+}
+
+@media (min-width: 600px) {
+    .hide-on-lg {
+        display: none;
+    }
+}
+
+/* General Layout: Mobile */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
 }
 
+/* General Layout: Larger Screens */
 @media (min-width: 600px) {
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        overflow-x: hidden;
+        min-height: 100dvh;
     }
 }
 
+/* Limit Image Sizes to Prevent Layout Breaking */
 .television-image,
 .portal-image,
 .angel-image {
@@ -32,32 +56,59 @@ body {
     height: auto;
 }
 
-.host-section {
-    order: 1;
-    width: 100%;
-}
-    
+/* Position Host and Speech Bubble: Mobile*/
 .host-container {
+    order: 2;
     position: relative;
     max-width: 100%;
-    box-sizing: border-box;
 }
 
-.television-image {
-    width: 100%;
+/* Position Host and Speech Bubble: Larger Screens */
+@media (min-width: 600px) {
+    .host-container {
+        order: -1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100dvh;
+    }
 }
 
+/* Regular Host Styling: Hidden on Large Screens */
 .host-image {
     position: absolute;
     left: 5%;
     width: 30%;
 }
 
-.speech-bubble-wrapper {
-    position: relative;
-    max-width: fit-content;
+/* Television Host Styling: Hidden on Mobile */
+.television-image {
+    max-width: 90%;
+    margin: 0 auto;
 }
 
+@media (min-width: 1200px) {
+    .television-image {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Speech Bubble Placement */
+.speech-bubble-wrapper {
+    position: relative;
+}
+
+/* Speech Bubble Placement: Larger Screens */
+@media (min-width: 600px) {
+    .speech-bubble-wrapper {
+        order: -1;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Speech Bubble Styling: Mobile */
 .speech-bubble {
     position: relative;
     max-width: 55%;
@@ -67,33 +118,124 @@ body {
     margin: 0.5rem;
     top: 20%;
     left: 40%;
-    background-color: #3ff1d9;
+    background-color: #E47A2E;
     border-radius: 5px;
     z-index: 2;
     text-align: center;
     box-sizing: border-box;
 }
 
+/* Speech Bubble Styling: Tablet */
+@media (min-width: 600px) {
+    .speech-bubble {
+        max-width: 70%;
+        padding: 1rem;
+        top: -1.5em;
+        left: auto;
+        font-size: large;
+    }
+}
+
+/* Speech Bubble Styling: Large Screens */
+@media (min-width: 1200px) {
+    .speech-bubble {
+        max-width: 50%;
+        font-size: larger;
+    }
+}
+
+/* Speech Bubble Pointer: Mobile */
 .speech-bubble-wrapper:before {
     content: "";
     width: 0;
     height: 0;
     position: absolute;
+    box-shadow: 0.5em;
     border: 20px solid transparent;
-	border-right-color: #3ff1d9;
+	border-right-color: #E47A2E;
 	border-left: 0;
     border-bottom: 0;
     left: 37%;
     top: 0%;
 }
 
+/* Speech Bubble Pointer: Larger Screens */
+@media (min-width: 600px) {
+    .speech-bubble-wrapper:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 1.5em solid transparent;
+	    border-top-color: #E47A2E;
+	    border-bottom: 0;
+	    margin-left: -1em;
+	    margin-bottom: -1em;
+        top: 8.5em;
+        left: auto;
+    }
+}
+
+/* Animation for Speech Bubble when Angel is Clicked */
+@keyframes speech-animate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Animation Added/Removed with JS */
+.speech-bubble-wrapper.speech-animate {
+    animation: speech-animate .2s ease-out 2 alternate;
+}
+
+/* Position Portal and Angel */
+.portal-angel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Portal-Angel Wrapper Sizing: Tablet */
+@media (min-width: 600px) {
+    .portal-angel-wrapper {
+        max-width: 90%;
+    }
+}
+
+/* Portal-Angel Wrapper Sizing: Large Screens */
+@media (min-width: 1200px) {
+    .portal-angel-wrapper {
+        max-width: 80%;
+    }
+}
+
+/* Portal Styling: Mobile */
 .portal-container {
     width: 90%;
+    height: auto;
     order: -1;
     margin: -5% 0 0 0;
     position: relative;
+    aspect-ratio: 1 / 1;
 }
 
+/* Portal Stlying: Tablet */
+@media (min-width: 600px) {
+    .portal-container {
+        z-index: 1;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+/* Portal Stlying: Large Screens */
+@media (min-width: 1200px) {
+    .portal-container {
+        max-width: 85%;
+    }
+}
+
+/* Portal Image Styling */
 .portal-image {
     width: 100%;
     position: relative;
@@ -101,6 +243,7 @@ body {
     border-radius: 50%;
 }
 
+/* Rotation Animation for Inner-Portal */
 @keyframes rotate {
     from {
         transform: translate(-50%, -50%) rotate(0deg);
@@ -110,12 +253,13 @@ body {
     }
 }
 
+/* Inner-Portal and Cat Image Styling */
 .cat-image {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 65%;
-    height: 65%;
+    width: 68%;
+    height: 68%;
     transform: translate(-50%, -50%);
     overflow: hidden;
     border-radius: 50%;
@@ -124,17 +268,13 @@ body {
     animation: rotate 60s linear reverse infinite;
 }
 
+/* Rotation Stopped by JS When Angel is Clicked */
 .stop-rotating {
     animation: none;
 }
 
-.angel-container {
-    order: 0;
-    margin: -20% 0 0 0;
-    max-width: 70%;
-}
-
-@keyframes hoverAnimation {
+/* Animation for Angel Hovering */
+@keyframes hover-animation {
     0% {
         transform: translateY(0);
     }
@@ -146,6 +286,38 @@ body {
     }
 }
 
+/* Angel Stlying: Mobile */
+.angel-container {
+    order: 0;
+    margin: -20% 0 0 0;
+    max-width: 70%;
+    padding: 3rem;
+    background: white;
+    background: radial-gradient(circle, white 50%, #009B77 70%);
+    border-radius: 45%;
+    box-sizing: border-box;
+    animation: hover-animation 2s ease-in-out infinite;
+}
+
+/* Angel Styling: Tablet */
+@media (min-width: 600px) {
+    .angel-container {
+        z-index: 0;
+        max-width: 60%;
+        box-sizing: content-box;
+        margin: -30% 0 0 0;
+    }
+}
+
+/* Angel Styling: Large Screens */
+@media (min-width: 1200px) {
+    .angel-container {
+        max-width: 55%;
+        margin: -25% 0 0 0;
+    }
+}
+
+/* Change Cursor to Show Angel is Clickable */
 .angel-image {
-    animation: hoverAnimation 2s ease-in-out infinite;
+    cursor: pointer;
 }
