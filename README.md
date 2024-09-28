@@ -24,7 +24,7 @@ from [The Cat API](https://thecatapi.com/).
 
 - Clone this repository to your local machine using the following command:
 ```bash
-$ git clone https://github.com/Cricket-sama/morgan-guarino-open-api.git
+$ git clone https://github.com/cricket-sama/morgan-guarino-open-api.git
 ```
 
 ## How to Use
@@ -37,7 +37,7 @@ $ git clone https://github.com/Cricket-sama/morgan-guarino-open-api.git
     - You can alternatively open `index.html` to be viewed in a web browser.
 
 3. **Initial Page**
-    - When the page first loads, the Host will be displayed with a default message instructing the user to click on the Angel. The Angel is displayed underneath the portal, which displays its default image——a swirling orange whorl.
+    - When the page first loads, the Host will be displayed with a default message instructing the user to click on the Angel. The Angel is displayed underneath the portal, which displays its default image—a swirling orange whorl.
 
 4. **Interact**
     - Click on the hovering Angel to receive a "blessing" in the form of a fun, random cat image and a fun fact about a random cat breed.
@@ -62,7 +62,7 @@ $ git clone https://github.com/Cricket-sama/morgan-guarino-open-api.git
 ## API Key
 
 > [!IMPORTANT]
-> This project utilizes The Cat API. Please remember to replace the placeholder API key in the `index.js` file with your own!
+> This project utilizes The Cat API. Be sure to replace the placeholder API key in the `index.js` file with your own!
 
 [ TheCat API](https://thecatapi.com/)
 

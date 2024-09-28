@@ -1,4 +1,4 @@
-const apiKey = 'live_FMmpObVxXvqWqAJUHrcgWoYfVvxExxwPycYhd7JFdBNPYlKdvGfvnJkZFcm9A52D';
+const apiKey = 'your-API-key'; // Replace with your real API key
 
 const imgUrl = 'https://api.thecatapi.com/v1/images/search';
 const factUrl = 'https://api.thecatapi.com/v1/breeds';
@@ -52,10 +52,10 @@ angel.addEventListener('click', () => {
         const formattedBreedInfo = breedInfo.slice(0, 15).toLowerCase() + breedInfo.slice(15);
         
         if(firstClick) {
-            speechBubble.innerText = `Look at this cat! It's like, the coolest cat ever. This is just a random cat, but did you know that ${formattedBreedInfo.slice(0, -1).replace(/[.]/g, '?')}??? Dope right? Click the angel again if you're dying to receive another blessing.`;
+            speechBubble.innerText = `Look at this cat! It's like, the coolest most stinkiest cat ever. This is just a random cat, but did you know that ${formattedBreedInfo.slice(0, -1).replace(/[.]/g, '?')}??? Dope right? Click the angel again if you're dying to receive another blessing.`;
             firstClick = false;
         } else {
-            speechBubble.innerText = `So, this is just another random cat, but did you also know that ${formattedBreedInfo.slice(0, -1).replace(/[.]/g, '?')}??? Dope right? Click the angel again if you're dying to receive another blessing.`;
+            speechBubble.innerText = `Here's another random cat for your eyeballs, and another random tidbit for your brain! Did you know that ${formattedBreedInfo.slice(0, -1).replace(/[.]/g, '?')}??? Dope right? Click the angel again if you're dying to receive another blessing.`;
         }
 
         speechBubble.scrollTop = 0; // Ensures scroll resets to top in speech bubble
